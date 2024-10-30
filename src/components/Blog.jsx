@@ -1,44 +1,27 @@
+import { Link } from "react-router-dom";
+import notAnImg from "../assets/No_Image_Available.jpg";
 const Blog = ({ blog }) => {
-  const { cover_image, title, published_timestamp, tag_list } = blog;
+  const { id, cover_image, title, published_timestamp } = blog;
+
   return (
-    <article className="flex flex-col bg-gray-900 dark:bg-gray-50">
-      <a
-        rel="noopener noreferrer"
-        href="#"
-        aria-label="Te nulla oportere reprimique his dolorum"
-      >
+    <Link to={`/blogs/${id}`}>
+      <article className="flex flex-col border border-gray-300 shadow-lg h-full">
         <img
           alt=""
-          className="object-cover w-full h-52 bg-gray-500 dark:bg-gray-500"
-          src={cover_image}
+          className="object-cover w-full h-52"
+          src={cover_image || notAnImg}
         />
-      </a>
-      <div className="flex flex-col flex-1 p-6">
-        <a
-          rel="noopener noreferrer"
-          href="#"
-          aria-label="Te nulla oportere reprimique his dolorum"
-        ></a>
-        <a
-          rel="noopener noreferrer"
-          href="#"
-          className="text-xs tracking-wider uppercase hover:underline text-violet-400 dark:text-violet-600"
-        >
-          <span className="flex gap-2">
-            {tag_list.map((tag, id) => (
-              <p key={id}>{tag}</p>
-            ))}
-          </span>
-        </a>
-        <h3 className="flex-1 py-2 text-lg font-semibold leading-snug">
-          {title}
-        </h3>
-        <div className="flex flex-wrap justify-between pt-3 space-x-2 text-xs text-gray-400 dark:text-gray-600">
-          <span>{published_timestamp}</span>
-          <span>2.2K views</span>
+        <div className="flex flex-col flex-1 p-6">
+          <h3 className="flex-1 py-2 text-lg font-semibold leading-snug">
+            {title}
+          </h3>
+          <div className="flex flex-wrap justify-between pt-3 space-x-2 text-xs text-gray-400 dark:text-gray-600">
+            <span>{published_timestamp}</span>
+            <span>2.2K views</span>
+          </div>
         </div>
-      </div>
-    </article>
+      </article>
+    </Link>
   );
 };
 
