@@ -55,9 +55,9 @@ const Nav = () => {
                 : "text-[#2AAAB8] font-semibold"
             }
           >
-            Blogs
+            All Blogs
           </NavLink>
-          <NavLink
+          {/* <NavLink
             to="/bookmarks"
             className={({ isActive }) =>
               isActive
@@ -69,6 +69,32 @@ const Nav = () => {
             }
           >
             Bookmarks
+          </NavLink> */}
+          <NavLink
+            to="/signup"
+            className={({ isActive }) =>
+              isActive
+                ? `active ${() =>
+                    e.target.checked
+                      ? "text-white"
+                      : "text-[#1D3F72]"} font-semibold`
+                : "text-[#2AAAB8] font-semibold"
+            }
+          >
+            Sign Up
+          </NavLink>
+          <NavLink
+            to="/login"
+            className={({ isActive }) =>
+              isActive
+                ? `active ${() =>
+                    e.target.checked
+                      ? "text-white"
+                      : "text-[#1D3F72]"} font-semibold`
+                : "text-[#2AAAB8] font-semibold"
+            }
+          >
+            Login
           </NavLink>
           <li>
             <label className="flex cursor-pointer gap-2">

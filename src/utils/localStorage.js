@@ -2,24 +2,22 @@ import toast from 'react-hot-toast';
 
 export const getBlogs = () => {
     let blogs = [];
-    
-    const storedBlogs = localStorage.getItem("blogs");
-    if(storedBlogs){
+    const storedBlogs = localStorage.getItem('blogs');
+    if(storedBlogs) {
         blogs = JSON.parse(storedBlogs);
     }
-    return localStorage.setItem("blogs", JSON.stringify(blogs));
+
+    return blogs;
 }
 
-export const saveBlogs = (blogDetails) => {
+export const saveBlogs = (blog) => {
     let blogs = getBlogs();
-    const isExist = blogs.find(b=> b.id === blogDetails.id);
+    const isExist = blogs.find(b=> b.id === blog.id);
     if(isExist){
-        toast.error("joma ache");
+        return toast.error("Already bookmarked");
     }
-    else{
-        blogs.push(blogDetails);
-        localStorage.setItem("blogs", JSON.stringify(blogDetails));
-        toast.success("bookmark added");
-    }
+    blogs.push(blog);
+    localStorage.setItem('blogs', JSON.stringify(blogs));
+    toast.success("Bookmark added");
 
 }

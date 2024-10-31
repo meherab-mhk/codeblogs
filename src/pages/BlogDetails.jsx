@@ -16,9 +16,10 @@ const BlogDetails = () => {
     tags,
   } = blogDetails;
 
-  const handleBookmark = (blogDetails) => {
-    saveBlogs(blogDetails);
+  const handleBookmark = (blog) => {
+    saveBlogs(blog);
   };
+
   return (
     <div className="max-w-2xl px-6 pb-16 mx-auto space-y-12 relative">
       <IoIosBookmarks

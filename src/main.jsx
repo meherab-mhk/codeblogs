@@ -6,8 +6,9 @@ import "./index.css";
 import Layout from "./layout/Layout";
 import BlogDetails from "./pages/BlogDetails";
 import Blogs from "./pages/Blogs";
-import Bookmarks from "./pages/Bookmarks";
 import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
 
 const router = createBrowserRouter([
   {
@@ -30,8 +31,12 @@ const router = createBrowserRouter([
           fetch(`https://dev.to/api/articles/${params.id}`),
       },
       {
-        path: "/bookmarks",
-        element: <Bookmarks></Bookmarks>,
+        path: "/signup",
+        element: <Signup></Signup>,
+      },
+      {
+        path: "login",
+        element: <Login></Login>,
       },
     ],
   },
